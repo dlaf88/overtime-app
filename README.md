@@ -14,6 +14,7 @@ This app was created using the Professional Rails Code Along Course. The instruc
 
 ##Technical Highlights
 - The use of TDD using rspec-rails,capybara,and database_cleaner gem
+- Single Table Inheritance
 - The use of Twilio API
 
 ## Features
