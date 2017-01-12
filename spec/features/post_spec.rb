@@ -4,6 +4,8 @@ describe 'Post' do
 
 	describe 'index' do
 		before do 
+			user = User.create!(first_name: 'Charrito',last_name: 'Javier',email: 'asdfasdf@gmail.com',password: 'asdfasdf',password_confirmation: 'asdfasdf')
+			login_as(user,scope: :user)
 			visit posts_path 
 		end 
 		it 'can be successfully reached' do			

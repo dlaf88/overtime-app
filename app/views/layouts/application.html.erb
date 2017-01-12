@@ -6,9 +6,22 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet"> 
   </head>
 
   <body>
-    <%= yield %>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+			<%= render 'shared/nav.html.erb' %>
+	    	<%= yield %>
+	    	</div>
+		</div>
+	</div>
   </body>
 </html>
+
+
+
+			
+			
