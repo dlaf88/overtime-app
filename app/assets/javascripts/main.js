@@ -1,3 +1,4 @@
+/*
 function active_nav(loc){
  if(loc.pathname == '/'){
  	var a = document.getElementById("home-li")
@@ -16,3 +17,4 @@ function doc(){
 
 
 active_nav(location);
+*/

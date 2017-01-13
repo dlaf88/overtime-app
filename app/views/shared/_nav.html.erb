@@ -8,10 +8,10 @@
 	
 	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		<ul class="nav navbar-nav">
-			<li id='home-li'>
+			<li id='home-li' class="<%= active?(root_path) %>">
 				<%= link_to "Home", root_path %>				
 			</li>
-			<li id='posts-li'>
+			<li id='posts-li' class="<%= active?(posts_path) %>">
 				<%= link_to "Posts", posts_path %>
 			</li>			
 		</ul>		

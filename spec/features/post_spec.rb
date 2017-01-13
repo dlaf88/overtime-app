@@ -6,6 +6,8 @@ describe 'Post' do
 		before do 
 			user = User.create!(first_name: 'Charrito',last_name: 'Javier',email: 'asdfasdf@gmail.com',password: 'asdfasdf',password_confirmation: 'asdfasdf')
 			login_as(user,scope: :user)
+			post1 = Post.create!(date: Time.now,rationale: 'Post1',user_id: user.id)
+			post2 = Post.create!(date: Time.now,rationale: 'Post2',user_id: user.id)
 			visit posts_path 
 		end 
 		it 'can be successfully reached' do			
@@ -13,6 +15,9 @@ describe 'Post' do
 		end 
 		it 'contains the word Post' do 			
 			expect(page).to have_content(/Posts/)
+		end 
+		it 'has a list of Post' do 
+			expect(page).to have_content(/Post1|Post2/)
 		end 
 	end 
 
