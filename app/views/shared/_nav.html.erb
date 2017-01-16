@@ -12,7 +12,7 @@
 				<%= link_to "Home", root_path %>				
 			</li>
 			<li id='posts-li' class="<%= active?(posts_path) %>">
-				<%= link_to "Posts", posts_path %>
+				<%= link_to "Posts", posts_path, id: 'posts_path'%>
 			</li>
 			<li id='posts-li' class="<%= active?(new_post_path) %>">
 				<%= link_to "New Post", new_post_path, id: 'new_post_nav_bar'%>

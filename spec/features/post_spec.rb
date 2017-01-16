@@ -49,6 +49,23 @@ describe 'Post' do
 			expect(User.last.posts.last.rationale).to have_content(/This is it./)
 		end 
 	end
+	
+	describe 'destroy' do 
+		before do 
+			user = FactoryGirl.create(:user)
+			login_as(user,scope: :user)
+			@post1 = FactoryGirl.create(:post)						 
+		end 
+
+		it 'can destroy a post by first going to index page' do
+			visit root_path
+			click_link 'posts_path'
+			click_link "destroy_post_#{@post1.id}"
+			expect(page.status_code).to eq(200)
+
+		end 
+
+	end 
 
 	describe 'edit' do 
 		before do 
