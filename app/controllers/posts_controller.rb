@@ -19,8 +19,9 @@ class PostsController < ApplicationController
 
 	def update
 		if @post.update(post_params)
-			redirect_to @post,notice: "Your post has been successfully updated."
+			redirect_to @post, notice: "Your post has been successfully updated."
 		else 
+			flash[:notice] = "Something went wrong."			
 			render :edit
 		end 	
 	end 
@@ -37,7 +38,8 @@ class PostsController < ApplicationController
 		@post.user_id = current_user.id
 		if @post.save
 			redirect_to @post,notice: 'Your post was created successfully.'
-		else
+		else	
+			flash.notice = "Something went wrong."	
 			render :new
 		end 
 	end
