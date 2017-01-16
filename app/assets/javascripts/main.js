@@ -18,3 +18,7 @@ function doc(){
 
 active_nav(location);
 */
+
+  $( function() {
+    $( "#datepicker" ).datepicker();
+  } );
