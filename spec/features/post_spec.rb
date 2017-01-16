@@ -18,7 +18,7 @@ describe 'Post' do
 		end 
 		it 'has a list of Post' do 
 			expect(page).to have_content(/some rationale|other rationale/)
-		end 
+		end 		
 	end 
 
 	describe 'creation' do 
@@ -29,6 +29,12 @@ describe 'Post' do
 		end 
 		it 'can reach a new form' do 			
 			expect(page.status_code).to eq(200)
+		end 
+
+		it 'can reach a new form through the index page' do 
+			visit root_path
+			click_link 'new_post_nav_bar'
+			expect(page).to have_content('New Post.')
 		end 
 		it 'can be created through form' do			
 			fill_in 'post[date]',with: Date.today
