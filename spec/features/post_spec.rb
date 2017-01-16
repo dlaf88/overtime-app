@@ -4,10 +4,10 @@ describe 'Post' do
 
 	describe 'index' do
 		before do 
-			user = User.create!(first_name: 'Charrito',last_name: 'Javier',email: 'asdfasdf@gmail.com',password: 'asdfasdf',password_confirmation: 'asdfasdf')
+			user = FactoryGirl.create(:user)
 			login_as(user,scope: :user)
-			post1 = Post.create!(date: Time.now,rationale: 'Post1',user_id: user.id)
-			post2 = Post.create!(date: Time.now,rationale: 'Post2',user_id: user.id)
+			post1 = FactoryGirl.create(:post)
+			post2 = FactoryGirl.create(:second_post)
 			visit posts_path 
 		end 
 		it 'can be successfully reached' do			
@@ -17,13 +17,13 @@ describe 'Post' do
 			expect(page).to have_content(/Posts/)
 		end 
 		it 'has a list of Post' do 
-			expect(page).to have_content(/Post1|Post2/)
+			expect(page).to have_content(/some rationale|other rationale/)
 		end 
 	end 
 
 	describe 'creation' do 
 		before do
-			user = User.create!(first_name: 'Charrito',last_name: 'Javier',email: 'asdfasdf@gmail.com',password: 'asdfasdf',password_confirmation: 'asdfasdf')
+			user = FactoryGirl.create(:user)
 			login_as(user,scope: :user)
 			visit new_post_path 
 		end 
@@ -43,5 +43,25 @@ describe 'Post' do
 			expect(User.last.posts.last.rationale).to have_content(/This is it./)
 		end 
 	end
+
+	describe 'edit' do 
+		before do 
+			user = FactoryGirl.create(:user)
+			login_as(user,scope: :user)
+			@post = FactoryGirl.create(:post)
+			visit posts_path
+		end 
+		it 'can be reached via the index page' do			
+			click_link "edit_#{@post.id}"
+			expect(page.status_code).to eq(200)
+
+		end 
+		it 'can update the post successfully' do 
+			click_link "edit_#{@post.id}"
+			fill_in 'post[rationale]',with: "This is it."
+			click_on "Save"
+			expect(page).to have_content(/This is it./)
+		end 
+	end 
 
 end 
