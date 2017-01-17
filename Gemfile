@@ -11,6 +11,8 @@ gem 'jquery-ui-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem "gritter", "1.2.0"
+gem "administrate", "~> 0.3.0"
+gem 'bourbon'
 
 group :development, :test do
   gem 'byebug', platform: :mri
