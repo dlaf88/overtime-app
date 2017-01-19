@@ -16,6 +16,8 @@ This app was created using the Professional Rails Code Along Course. The instruc
 - The use of TDD using rspec-rails,capybara,and database_cleaner gem
 - Single Table Inheritance
 - The use of Twilio API
+- The use of Enums 
+- Working with the Administrate gem
 
 ## Features
 - Admin Dashboard which allows client to create,update,or delete admins and employees.
