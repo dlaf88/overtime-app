@@ -2,11 +2,15 @@ class PostsController < ApplicationController
 	before_action :set_post, only: [:show,:edit,:update,:destroy]
 	
 	def index 
-		@posts = Post.all		
+		if current_user.is_a?(AdminUser) 
+			@posts = Post.all
+		else 
+			@posts = Post.where(user_id: current_user.id)
+		end 
 	end 
 
 	def edit
-		
+		authorize @post
 	end 
 
 	def destroy

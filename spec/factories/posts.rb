@@ -8,6 +8,6 @@ FactoryGirl.define do
 	factory :second_post, class: "Post" do 
 		date Date.today
 		rationale "Some other rationale"
-		user
+		user		
 	end 
 end 
