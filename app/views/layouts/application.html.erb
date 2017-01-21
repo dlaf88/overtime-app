@@ -18,7 +18,7 @@
 	    	</div>
 		</div>
 	</div>
-	<%= js add_gritter(flash[:notice], title: "Overtime APP Notification", sticky: false) %>
+	<%= render partial: 'shared/growl_notifications' %>
 	<%= javascript_include_tag 'main.js' %>
   </body>
 </html>

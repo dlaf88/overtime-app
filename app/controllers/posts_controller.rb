@@ -25,7 +25,7 @@ class PostsController < ApplicationController
 		if @post.update(post_params)
 			redirect_to @post, notice: "Your post has been successfully updated."
 		else 
-			flash[:notice] = "Something went wrong."			
+			flash[:alert] = "Something went wrong."			
 			render :edit
 		end 	
 	end 
