@@ -16,6 +16,8 @@ gem 'bourbon'
 gem 'pundit', '~> 1.1'
 gem 'twilio', '~> 3.1', '>= 3.1.1'
 gem 'figaro'
+gem 'dotenv-rails', :groups => [:development, :test]
+
 
 group :development, :test do
   gem 'byebug', platform: :mri
