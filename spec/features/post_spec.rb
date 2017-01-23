@@ -35,12 +35,13 @@ describe 'Post' do
 		it 'can be created through form' do			
 			fill_in 'post[date]',with: Date.today
 			fill_in 'post[rationale]',with: 'Some rationale.'
-			click_on "Save"
-			expect(page).to have_content(/Some rationale./)
+			fill_in 'post[overtime_request]',with: '1.5'
+			expect{ click_on "Save" }.to change(Post,:count).by(1)
 		end 
 		it 'has a User associated with it' do
 			fill_in 'post[date]',with: Date.today
 			fill_in 'post[rationale]',with: 'This is it.'
+			fill_in 'post[overtime_request]',with: '1.5'
 			click_on "Save"
 			expect(User.last.posts.last.rationale).to have_content(/This is it./)
 		end 

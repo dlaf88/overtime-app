@@ -10,9 +10,14 @@ RSpec.describe Post, type: :model do
   			expect(@post).to be_valid
   		end 
 
-  		it 'cannot be created without a date or a rationale'do
-  			@post.date,@post.rationale = nil
+  		it 'cannot be created without a date, rationale, or overtime_time'do
+  			@post.date,@post.rationale,@post.overtime_request = nil
   			expect(@post).to_not be_valid
   		end 
+
+      it 'cannot be created with an overtime request of 0.0' do
+        @post.overtime_request = 0.0
+        expect(@post).to_not be_valid
+      end
 	end    
 end
