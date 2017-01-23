@@ -15,6 +15,7 @@ gem "administrate", "~> 0.3.0"
 gem 'bourbon'
 gem 'pundit', '~> 1.1'
 gem 'twilio', '~> 3.1', '>= 3.1.1'
+gem 'figaro'
 
 group :development, :test do
   gem 'byebug', platform: :mri
