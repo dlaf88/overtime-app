@@ -2,7 +2,8 @@
 	<th scope="row"><%= post.id %></th>
 	<td><%= post.date %></td>
 	<td><%= post.user.full_name %></td> 
-	<td><%= post.rationale %></td>     
+	<td><%= post.rationale %></td>
+ 	<td><%= post.status %></td>       
 	<td><%= link_to "Edit",edit_post_path(post),id: "edit_#{post.id}" %></td> 
 	<td><%= link_to "Delete",post_path(post),method: :delete, id: "destroy_post_#{post.id}",data: {confirm: "Are you sure?"} %></td>  
 </tr>  

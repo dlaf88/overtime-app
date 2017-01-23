@@ -22,9 +22,20 @@ describe 'navigate for approval workflow:' do
 			logout :user
 			user = FactoryGirl.create(:user)
 			login_as(user,scope: :user)					
-			visit edit_post_path(@post)		
-			expect(current_path).to eq(root_path)
+			visit edit_post_path(@post)	
 
+			expect(current_path).to eq(root_path)
+		end 
+
+		it 'cannot be edited by post creator if status is approved' do
+			logout :user
+			user = FactoryGirl.create(:user)		
+			login_as(user,scope: :user)	
+			post = FactoryGirl.create(:post)
+			post.update!(user_id: user.id, status: 'approved')			
+			visit edit_post_path(post)
+
+			expect(current_path).to eq(root_path)
 		end 
 	end 
 end
