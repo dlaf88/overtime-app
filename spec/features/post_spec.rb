@@ -1,19 +1,18 @@
 require 'rails_helper'
 
 describe 'Post' do 
+	before do 
+		@user = FactoryGirl.create(:user)
+		login_as(@user,scope: :user)
+	end 
 
 	describe 'index' do
-		before do 
-			user = FactoryGirl.create(:user)
-			login_as(user,scope: :user)
+		before do 			
 			@post1 = FactoryGirl.create(:post)
-			@post1.update!(user_id: user.id)
+			@post1.update!(user_id: @user.id)
 			post2 = FactoryGirl.create(:second_post)
 			visit posts_path 
-		end 	
-		it 'contains the word Post' do 			
-			expect(page).to have_content(/Posts/)
-		end 
+		end 		
 		it 'has a list of Post' do 		
 			expect(page).to have_content(@post1.rationale.to_s)
 		end 		
@@ -21,9 +20,7 @@ describe 'Post' do
 	end 
 
 	describe 'creation' do 
-		before do
-			user = FactoryGirl.create(:user)
-			login_as(user,scope: :user)
+		before do			
 			visit new_post_path 
 		end 
 		it 'can reach a new form' do 			
@@ -51,10 +48,9 @@ describe 'Post' do
 	
 	describe 'destroy' do 
 		before do 
-			user = FactoryGirl.create(:user)
-			login_as(user,scope: :user)
+			
 			@post1 = FactoryGirl.create(:post)	
-			@post1.update!(user_id: user.id)					 
+			@post1.update!(user_id: @user.id)					 
 		end 
 
 		it 'can destroy a post by first going to index page' do
@@ -68,11 +64,9 @@ describe 'Post' do
 	end 
 
 	describe 'edit' do 
-		before do 
-			user = FactoryGirl.create(:user)
-			login_as(user,scope: :user)
+		before do		
 			@post = FactoryGirl.create(:post)
-			@post.update!(user_id: user.id)
+			@post.update!(user_id: @user.id)
 			visit posts_path
 		end 
 		it 'can be reached via the index page' do			
