@@ -23,6 +23,7 @@ class AdminUserDashboard < Administrate::BaseDashboard
     last_sign_in_ip: Field::String.with_options(searchable: false),
     first_name: Field::String.with_options(searchable: false),
     last_name: Field::String.with_options(searchable: false),
+    phone_number: Field::String.with_options(searchable: false),
     type: Field::String.with_options(searchable: false),
     created_at: Field::DateTime.with_options(searchable: false),
     updated_at: Field::DateTime.with_options(searchable: false),
@@ -37,6 +38,7 @@ class AdminUserDashboard < Administrate::BaseDashboard
     :posts,
     :id,
     :email,
+    :phone_number,
     :encrypted_password,
   ].freeze
 
@@ -60,6 +62,7 @@ class AdminUserDashboard < Administrate::BaseDashboard
     :type,
     :created_at,
     :updated_at,
+    :phone_number
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -69,7 +72,8 @@ class AdminUserDashboard < Administrate::BaseDashboard
     :first_name,
     :last_name,
     :email,
-    :password
+    :password,
+    :phone_number
   ].freeze
 
   # Overwrite this method to customize how admin users are displayed
