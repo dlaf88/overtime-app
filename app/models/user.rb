@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :posts
+  has_many :audit_logs
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :phone_number, presence: true,length: {is: 10}
