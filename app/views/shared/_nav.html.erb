@@ -16,7 +16,8 @@
 			</li>
 			<li id='posts-li' class="<%= active?(new_post_path) %>">
 				<%= link_to "New Post", new_post_path, id: 'new_post_nav_bar'%>
-			</li>			
+			</li>
+			<%= render 'shared/audit_log_admin' if policy(AuditLog).index? %>			
 		</ul>		
 		<ul class="nav navbar-nav navbar-right">
 			<li>
