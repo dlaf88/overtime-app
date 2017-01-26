@@ -1,0 +1,63 @@
+<h1>Hello <%= current_user.full_name %></h1>
+<br>
+
+<div>
+	<div class='row well'>
+		<h3>Items Pending Your Approval</h3>
+		<br>
+			<% @pending_approval.each do |overtime| %>
+				<div class="col-lg-3 col-md-6">
+			        <div class="panel panel-primary">
+			            <div class="panel-heading">
+			                <div class="row">
+			                    <div class="col-xs-3">
+			                        <span><b><%= overtime.user.full_name %></b> </span>
+			                    </div>
+			                    <div class="col-xs-9 text-right">
+			                        <div><%= overtime.date.strftime('%x') %></div>
+			                        <div><%= truncate(overtime.rationale) %></div>
+			                    </div>
+			                </div>
+			            </div>
+			            
+			                <div class="panel-footer">
+			                <a class='btn btn-warning btn-sm' href="/posts/<%= overtime.id %>/edit ">
+			                    <span class="pull-left">Inspect Request</span>
+			                </a>
+			                <%= link_to "Approve", approve_post_path(overtime), class: "btn btn-success btn-sm pull-right", id: "approve_#{overtime.id}" %>			                 			                   
+			                 <div class="clearfix"></div>
+			                </div>
+			            </a>
+			            
+			        </div>
+			    </div>	
+		    <% end %>    
+	 </div>
+	 <div class='row well'>
+	 <h3>Pending Audit Logs</h3>
+		<br>
+			
+			<div class="col-lg-3 col-md-6">
+		        <div class="panel panel-primary">
+		            <div class="panel-heading">
+		                <div class="row">
+		                    <div class="col-xs-3">
+		                        <i class="fa fa-comments fa-5x"></i>
+		                    </div>
+		                    <div class="col-xs-9 text-right">
+		                        <div class="huge">26</div>
+		                        <div>New Comments!</div>
+		                    </div>
+		                </div>
+		            </div>
+		            <a href="#">
+		                <div class="panel-footer">
+		                    <span class="pull-left">View Details</span>
+		                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+		                    <div class="clearfix"></div>
+		                </div>
+		            </a>
+		        </div>
+		    </div>	    
+	 </div>
+</div>

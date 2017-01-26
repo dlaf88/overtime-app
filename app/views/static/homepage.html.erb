@@ -1,11 +1,6 @@
-<div class="jumbotron">
-	<h2>
-	Overtime APP
-		</h2>
-	<p>
-	This is an app to help you with your Employees' Overtime needs.
-		</p>
-	<p>
-	<a class="btn btn-primary btn-large" href="#">Learn more</a>
-	</p>
-</div>
+
+<% if current_user.is_a?(AdminUser) %>
+	<%= render 'admin_hp' %>
+<% else %>
+	<%= render 'employee' %>
+<% end %>
