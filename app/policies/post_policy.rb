@@ -1,5 +1,6 @@
 class PostPolicy < ApplicationPolicy
-
+	
+	
 
 	def update?
 		return true if is_admin?
