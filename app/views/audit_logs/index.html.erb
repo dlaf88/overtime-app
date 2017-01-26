@@ -12,11 +12,17 @@
 
     </tr>
   </thead>
-  <tbody>
+  <tbody id='audit_logs'>
   <%= render @audit_logs %>   
    
   </tbody>
+  
+
+
 </table>
+ <div id='audit_paginator'>
+    <%= paginate @audit_logs,:remote => true %>
+  </div>
 
 
 
