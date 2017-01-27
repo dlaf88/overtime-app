@@ -8,9 +8,11 @@ end
 	Post.create!(date: Time.now, rationale: "Segundo's Post #{post + 1}",user_id: @second_user.id, overtime_request: 0.5)
 end 
 
-20.times do |log|
-	AuditLog.create!(user_id: @second_user.id,status: 0,start_date: (Date.today - 6.days))
+4.times do |log|
+	AuditLog.create!(user_id: @second_user.id,status: 0,start_date: (Date.today - 6.days - (7*log).days))
+	
 end 
-20.times do |log|
-	AuditLog.create!(user_id: @user.id,status: 0,start_date: (Date.today - 6.days))
+3.times do |log|
+	AuditLog.create!(user_id: @user.id,status: 0,start_date: (Date.today - 6.days - (7*log).days))
+	
 end 

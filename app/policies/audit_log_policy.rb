@@ -2,6 +2,10 @@ class AuditLogPolicy < ApplicationPolicy
 	def index?
 		is_admin?
 	end 
+
+	def confirm?
+		record.user_id == user.id
+	end 
 	def show?
 		is_admin?
 	end 
