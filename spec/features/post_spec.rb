@@ -30,7 +30,7 @@ describe 'Post' do
 		it 'can reach a new form through the index page' do 
 			visit root_path
 			click_link 'new_post_nav_bar'
-			expect(page).to have_content('New Post.')
+			expect(page).to have_content('New Request for Overtime.')
 		end 
 		it 'can be created through form' do			
 			fill_in 'post[date]',with: Date.today

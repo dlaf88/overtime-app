@@ -18,6 +18,7 @@ gem 'twilio-ruby', '~> 4.13'
 gem 'figaro'
 gem 'kaminari', '~> 0.16'
 gem 'dotenv-rails', :groups => [:development, :test]
+gem 'chronic', '~> 0.10.2'
 
 
 group :development, :test do
